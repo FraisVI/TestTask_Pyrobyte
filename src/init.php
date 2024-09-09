@@ -15,10 +15,11 @@ while (!feof($file)) {
     ++$i;
 }
 
+$format = 'json';  //xml csv json
 try {
-    $generator = new SitemapGenerator($pages, 'xml', 'result/sitemap.xml');
+    $generator = new SitemapGenerator($pages, $format, 'result/sitemap.' . $format);
     $generator->generate();
-    echo "Sitemap успешно создан!";
+    echo "Карта сайта успешно создан!";
 } catch (Exception $e) {
     echo "Ошибка: " . $e->getMessage();
 }
