@@ -14,54 +14,57 @@
 В тестовом задании скинуть пример использования библиотеки и ссылку на репозиторий библиотеки (можно на гитхабе).
 Примеры генерируемых файлов
 В зависимости от указанного типа файла при инициализации библиотеки на выходе должен сгенерироваться файл с такой структурой содержимого:
-XML
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://site.ru/</loc>
-<lastmod>2020-12-14</lastmod>
-<priority>1</priority>
-<changefreq>hourly</changefreq>
-</url>
-<url>
-<loc>https://site.ru/news</loc>
-<lastmod>2020-12-10</lastmod>
-<priority>0.5</priority>
-<changefreq>daily</changefreq>
-</url>
-<url>
-<loc>https://site.ru/about</loc>
-<lastmod>2020-12-07</lastmod>
-<priority>0.1</priority>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>https://site.ru/products</loc>
-<lastmod>2020-12-12</lastmod>
-<priority>0.5</priority>
-<changefreq>daily</changefreq>
-</url>
-<url>
-<loc>https://site.ru/products/ps5</loc>
-<lastmod>2020-12-11</lastmod>
-<priority>0.1</priority>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>https://site.ru/products/xbox</loc>
-<lastmod>2020-12-12</lastmod>
-<priority>0.1</priority>
-<changefreq>weekly</changefreq>
-</url>
-<url>
-<loc>https://site.ru/products/wii</loc>
-<lastmod>2020-12-11</lastmod>
-<priority>0.1</priority>
-<changefreq>weekly</changefreq>
-</url>
-</urlset>
 
+XML
+```xml
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<url>
+		<loc>https://site.ru/</loc>
+		<lastmod>2020-12-14</lastmod>
+		<priority>1</priority>
+		<changefreq>hourly</changefreq>
+	</url>
+	<url>
+		<loc>https://site.ru/news</loc>
+		<lastmod>2020-12-10</lastmod>
+		<priority>0.5</priority>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+		<loc>https://site.ru/about</loc>
+		<lastmod>2020-12-07</lastmod>
+		<priority>0.1</priority>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://site.ru/products</loc>
+		<lastmod>2020-12-12</lastmod>
+		<priority>0.5</priority>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+		<loc>https://site.ru/products/ps5</loc>
+		<lastmod>2020-12-11</lastmod>
+		<priority>0.1</priority>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://site.ru/products/xbox</loc>
+		<lastmod>2020-12-12</lastmod>
+		<priority>0.1</priority>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://site.ru/products/wii</loc>
+		<lastmod>2020-12-11</lastmod>
+		<priority>0.1</priority>
+		<changefreq>weekly</changefreq>
+	</url>
+</urlset>
+```
 CSV
 loc;lastmod;priority;changefreq<br>
+```csv
 https://site.ru/;2020-12-14;1;hourly<br>
 https://site.ru/news;2020-12-10;0.5;daily<br>
 https://site.ru/about;2020-12-07;0.1;weekly<br>
@@ -69,8 +72,9 @@ https://site.ru/products;2020-12-12;0.5;daily<br>
 https://site.ru/products/ps5;2020-12-11;0.1;weekly<br>
 https://site.ru/products/xbox;2020-12-12;0.1;weekly<br>
 https://site.ru/products/wii;2020-12-11;0.1;weekly<br>
-
+```
 JSON
+```JSON
 [{
 	loc: “https://site.ru/”,
 	lastmod: “2020-12-14”,
@@ -111,7 +115,7 @@ JSON
 	priority: 0.1,
 	changefreq: “weekly”
 }]
-
+```
 При этом массив страниц должен передаваться при инициализации библиотеки, а не захардкоден в самой либе.
 
 Важно!
