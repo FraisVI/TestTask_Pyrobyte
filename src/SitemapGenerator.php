@@ -12,11 +12,11 @@ use SitemapGenerator\Exceptions\FileWriteException;
 
 class SitemapGenerator
 {
-    private $pages;
-    private $generator;
-    private $filePath;
+    private array $pages;
+    private SitemapGeneratorInterface $generator;
+    private string $filePath;
 
-    public function __construct(array $pages, string $format, string $filePath)
+    public function __construct(array $pages, FormatGeneration $format, string $filePath)
     {
         $this->validateData($pages);
 
