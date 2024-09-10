@@ -1,5 +1,5 @@
 {
-  "name": "yourname/sitemap-generator",
+  "name": "TestTaskPyrobyte",
   "description": "A library for generating sitemap files in XML, CSV, and JSON formats.",
   "type": "library",
   "autoload": {
