@@ -5,7 +5,10 @@
   "autoload": {
     "psr-4": {
       "FraisVI\\SitemapGenerator\\": "src/"
-    }
+    },
+    "files": [
+        "src/init.php"
+      ]
   },
   "require": {
     "php": ">=8.2",
