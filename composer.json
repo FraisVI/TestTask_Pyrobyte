@@ -11,5 +11,8 @@
     "php": ">=8.2",
     "ext-dom": "*",
     "ext-json": "*"
+  },
+  "require-dev": {
+    "avto-dev/php-cs-fixer": "1.3"
   }
 }
