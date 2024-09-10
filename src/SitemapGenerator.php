@@ -2,7 +2,7 @@
 
 namespace SitemapGenerator;
 
-use SitemapGenerator\Generators\SitemapGeneratorInterface;
+use SitemapGenerator\Generators\SitemapGeneratorInterface; //зачем?
 use SitemapGenerator\Generators\XmlSitemapGenerator;
 use SitemapGenerator\Generators\CsvSitemapGenerator;
 use SitemapGenerator\Generators\JsonSitemapGenerator;
@@ -36,18 +36,17 @@ class SitemapGenerator
         }
     }
 
-    private function getGenerator(string $format): SitemapGeneratorInterface
+    /**
+     * @throws InvalidDataException
+     */
+    private function getGenerator(FormatGeneration $format): SitemapGeneratorInterface
     {
-        switch (strtolower($format)) {
-            case 'xml':
-                return new XmlSitemapGenerator();
-            case 'csv':
-                return new CsvSitemapGenerator();
-            case 'json':
-                return new JsonSitemapGenerator();
-            default:
-                throw new InvalidDataException("Неподдерживаемый формат: $format");
-        }
+        return match ($format) {
+            FormatGeneration::xml => new XmlSitemapGenerator(),
+            FormatGeneration::csv => new CsvSitemapGenerator(),
+            FormatGeneration::json => new JsonSitemapGenerator(),
+            default => throw new InvalidDataException("Неподдерживаемый формат: "),
+        };
     }
 
     private function createDirectoryIfNotExists(string $dir)

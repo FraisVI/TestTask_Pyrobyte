@@ -2,11 +2,12 @@
 
 require_once realpath('../vendor/autoload.php');
 use SitemapGenerator\SitemapGenerator;
-
+use SitemapGenerator\FormatGeneration;
 
 $file = fopen('Site.txt', 'r');
 $i = 0;
 
+$pages = array(); // правильно ли?
 while (!feof($file)) {
     $str = fgets($file);
     $str = trim($str);
@@ -15,9 +16,10 @@ while (!feof($file)) {
     ++$i;
 }
 
-$format = 'json';  //xml csv json
+fclose($file);
+
 try {
-    $generator = new SitemapGenerator($pages, $format, 'result/sitemap.' . $format);
+    $generator = new SitemapGenerator($pages, FormatGeneration::xml, 'result/sitemap.' . FormatGeneration::xml->value);
     $generator->generate();
     echo "Карта сайта успешно создан!";
 } catch (Exception $e) {
