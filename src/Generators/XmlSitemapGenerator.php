@@ -2,13 +2,11 @@
 
 namespace SitemapGenerator\Generators;
 
-use DOMDocument;
-
 class XmlSitemapGenerator implements SitemapGeneratorInterface
 {
     public function generate(array $pages): string
     {
-        $dom = new DOMDocument('1.0', 'UTF-8');
+        $dom = new \DOMDocument('1.0', 'UTF-8');
         $dom->formatOutput = true;
 
         $urlset = $dom->createElement('urlset');

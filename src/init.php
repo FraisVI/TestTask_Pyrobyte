@@ -1,14 +1,14 @@
 <?php
 
 require_once realpath('../vendor/autoload.php');
-use SitemapGenerator\SitemapGenerator;
 use SitemapGenerator\FormatGeneration;
+use SitemapGenerator\SitemapGenerator;
 
-$file = fopen('Site.txt', 'r');
+$file = fopen('Site.txt', 'rb');
 $i = 0;
 
-$pages = array(); // правильно ли?
-while (!feof($file)) {
+$pages = [];
+while (! feof($file)) {
     $str = fgets($file);
     $str = trim($str);
     $tempArray = explode(';', $str);
@@ -18,10 +18,12 @@ while (!feof($file)) {
 
 fclose($file);
 
-try {
-    $generator = new SitemapGenerator($pages, FormatGeneration::xml, 'result/sitemap.' . FormatGeneration::xml->value);
-    $generator->generate();
-    echo "Карта сайта успешно создан!";
-} catch (Exception $e) {
-    echo "Ошибка: " . $e->getMessage();
+if (! empty($pages)) {
+    try {
+        $generator = new SitemapGenerator($pages, FormatGeneration::Json, 'result/sitemap.' . FormatGeneration::Json->value);
+        $generator->generate();
+        echo 'Карта сайта успешно создан!';
+    } catch (Exception $e) {
+        echo 'Ошибка: ' . $e->getMessage();
+    }
 }

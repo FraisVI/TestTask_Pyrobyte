@@ -6,7 +6,7 @@ class CsvSitemapGenerator implements SitemapGeneratorInterface
 {
     public function generate(array $pages): string
     {
-        $output = fopen('php://memory', 'r+');
+        $output = fopen('php://memory', 'r+b');
         fputcsv($output, ['loc', 'lastmod', 'priority', 'changefreq'], ';');
 
         foreach ($pages as $page) {
@@ -14,6 +14,7 @@ class CsvSitemapGenerator implements SitemapGeneratorInterface
         }
 
         rewind($output);
+
         return stream_get_contents($output);
     }
 }
